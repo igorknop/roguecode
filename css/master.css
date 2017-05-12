@@ -1,0 +1,57 @@
+* {
+  margin:0;
+  padding: 0;
+}
+html{
+  background-color: silver;
+}
+body {
+  margin: 1em auto;
+  background-color: white;
+  padding: 1em;
+  border-radius: 1em;
+  border: 4px outset;
+  min-width: 800px;
+
+}
+main{
+  display: flex;
+}
+#scene, #controls {
+  min-width: 360px;
+  min-height: 360px;
+  display: inline-block;
+  background-color: darkgrey;
+  border-radius: 1em;
+  padding: 11px;
+  border: 4px outset;
+  flex: 1 1 auto;
+}
+
+footer, header{
+  clear: both;
+  padding: 1em;
+  text-align: center;
+}
+
+canvas{
+  float: left;
+  border-color: 1px solid black;
+  display: none;
+}
+#mainProg,#pallete{
+  margin: 0 0 1em 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+li{
+  width: 90%;
+  height: 1.1em;
+  padding: 0.5em;
+  line-height: 1.1em;
+  margin: 0;
+  border: 1px outset lightgrey;
+  border-radius: 0.5em;
+  background-color: white;
+}
