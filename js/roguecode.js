@@ -22,13 +22,14 @@ document.addEventListener("DOMContentLoaded", function() {
     clearInterval(roguecode.elements.timer);
   });
   document.getElementById("stop").addEventListener("click", function() {
+    clearInterval(roguecode.elements.timer);
     roguecode.pc = 0;
+    roguecode.elements.messages.innerHTML="";
     roguecode.setStatus("Stopped");
     document.querySelectorAll(".active").forEach(function(e) {
       e.classList.remove("active");
     });
 
-    clearInterval(roguecode.elements.timer);
   });
 }, false);
 
@@ -46,6 +47,7 @@ function RogueCode() {
 RogueCode.prototype.init = function() {
   this.elements.lines = document.querySelectorAll("#mainProg li");
   this.elements.commands = document.querySelectorAll("#pallete li");
+  this.elements.messages = document.querySelectorAll("dl")[0];
   this.canvas = document.querySelectorAll("canvas")[0];
   this.ctx = this.canvas.getContext("2d");
   this.map = new Map();
@@ -128,12 +130,21 @@ RogueCode.prototype.execute = function() {
       this.map.hero.turn(-1);
       return this.pc++;
     } else if (command[0] == "S") {
+      this.message(this.map.hero.name, command.substring(1));
       this.map.hero.say(command.substring(1));
       return this.pc++;
     }
   }
 };
 
+RogueCode.prototype.message = function (who, message) {
+  var name = document.createElement("dt");
+  name.innerText = who;
+  var msg = document.createElement("dd");
+  msg.innerText = message;
+  this.elements.messages.appendChild(name);
+  this.elements.messages.appendChild(msg);
+};
 handleDragStart = function(e) {
   this.style.opacity = 0.4;
   srcElement = this;
