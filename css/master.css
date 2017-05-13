@@ -1,66 +1,84 @@
 * {
-  margin:0;
+  margin: 0;
   padding: 0;
 }
-html{
+
+html {
   background-color: silver;
 }
+
 body {
   margin: 1em auto;
-  background-color: white;
+  background-color: rgb(40,40,40);
+  color: white;
   padding: 1em;
   border-radius: 1em;
-  border: 4px outset;
-  min-width: 800px;
-
+  border: 1px solid white;
+  min-width: 600px;
+  max-width: 800px;
 }
-main{
+
+main {
   display: flex;
 }
+
 #scene, #controls {
   min-width: 360px;
   min-height: 360px;
   display: inline-block;
-  background-color: darkgrey;
+  background-color: rgb(20,20,20);
   border-radius: 1em;
   padding: 11px;
-  border: 4px outset;
+  border: 1px solid;
   flex: 1 1 auto;
 }
 
-footer, header{
+footer, header {
   clear: both;
   padding: 1em;
   text-align: center;
 }
 
-canvas{
-  float: left;
-  border-color: 1px solid black;
-  display: none;
+canvas {
+  margin: auto;
 }
-#mainProg,#pallete{
+
+#mainProg, #pallete {
   margin: 0 0 1em 0;
   padding: 0;
   list-style: none;
   text-align: left;
 }
-li{
+
+li {
   width: 90%;
   height: 1.1em;
   padding: 0.5em;
   line-height: 1.1em;
   margin: 0;
-  border: 2px outset lightgrey;
+  border: 1px solid darkgrey;
   border-radius: 0.5em;
-  background-color: beige;
-}
-.over{
-  border: 2px inset lightgrey;
+  background-color: rgb(20,20,20);
+  color: white;
+  font-family: monospace;
+  font-weight: bold;
 }
 
-#play, #pause, #stop{
-  padding:0.5em;
+.over {
+  border: 2px inset darkgrey;
+}
+
+#play, #pause, #stop {
+  padding: 0.5em;
   text-align: center;
   border-radius: 0.5em;
+}
+h1{
+  margin-top: 1em;
+}
+
+footer a,footer a:visited,footer a:active {
+  text-decoration: none;
+  font-family: monospace;
+  color: white;
 }

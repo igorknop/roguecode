@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>RoboCode!</title>
     <link rel="stylesheet" href="css/master.css">
+    <script src="js/map.js" charset="utf-8"></script>
     <script src="js/robocode.js" charset="utf-8"></script>
   </head>
   <body>
@@ -12,13 +13,13 @@
     </header>
     <main>
       <div id="scene">
-        <canvas width="360" height="360" /></canvas>
+        <canvas width="352" height="352" ></canvas>
       </div><div id="controls">
         <section>
         <button id="play">&#x25b6;</button>
         <button id="pause">&#x23f8;</button>
         <button id="stop">&#x25a0;</button>
-        <h1>Main</h1>
+        <h1>Main [<span id="status"></span>]</h1>
         <ol id="mainProg">
           <li>int main(){</li>
           <li draggable="true">say("Hello World!");</li>
