@@ -69,11 +69,6 @@ li {
   border: 2px inset darkgrey;
 }
 
-#play, #pause, #stop {
-  padding: 0.5em;
-  text-align: center;
-  border-radius: 0.5em;
-}
 h1{
   margin-top: 1em;
 }
