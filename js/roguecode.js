@@ -5,9 +5,10 @@ document.addEventListener("DOMContentLoaded", function() {
   roguecode = new RogueCode();
   roguecode.init();
   roguecode.setStatus("Stopped");
-  roguecode.draw();
+  setTimeout(function(){roguecode.draw();}, 100);
   var status = document.getElementsByTagName("span")[0];
   document.getElementById("play").addEventListener("click", function() {
+    if(roguecode.elements.timer!==null) return;
     roguecode.parse();
     roguecode.setStatus("Running");
     roguecode.elements.timer = setInterval(function() {
@@ -15,14 +16,20 @@ document.addEventListener("DOMContentLoaded", function() {
       k = roguecode.execute();
       roguecode.elements.lines[roguecode.pc].classList.add("active");
       roguecode.step();
+      if(roguecode.pc>roguecode.elements.lines+2){
+        clearInterval(roguecode.elements.timer);
+        roguecode.elements.timer = null;
+      }
     }, 1000);
   });
   document.getElementById("pause").addEventListener("click", function() {
     roguecode.setStatus("Paused");
     clearInterval(roguecode.elements.timer);
+    roguecode.elements.timer = null;
   });
   document.getElementById("stop").addEventListener("click", function() {
     clearInterval(roguecode.elements.timer);
+    roguecode.elements.timer = null;
     roguecode.pc = 0;
     roguecode.elements.messages.innerHTML="";
     roguecode.setStatus("Stopped");
@@ -52,18 +59,22 @@ RogueCode.prototype.init = function() {
   this.ctx = this.canvas.getContext("2d");
   this.map = new Map();
   this.map.load([
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-    [1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-    [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
+    [7, 4, 4, 4, 4, 4, 4, 4, 4, 4, 8],
+    [3, 9, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+    [6, 2, 2, 2, 2, 2, 2, 2, 2, 2, 5],
   ]);
+  this.map.loadImage("soldier", "img/lpc_entry/png/male_sprites.png");
+  this.map.loadImage("floors", "img/LPC Base Assets/tiles/castlefloors.png");
+  this.map.loadImage("walls", "img/LPC Base Assets/tiles/castlewalls.png");
+  this.map.loadImage("limits", "img/LPC Base Assets/tiles/cement.png");
 
   this.elements.lines.forEach(function(line) {
     line.addEventListener('dragstart', handleDragStart, false);

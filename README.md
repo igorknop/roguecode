@@ -20,6 +20,8 @@ RogueCode is an rogue like adventure where players must program theirs adveturer
 
 ## Copyright
 
+### RogueCode License
+
 Copyright 2017 [Igor Knop](igorknop@gmail.com)
 
 This program is free software: you can redistribute it and/or modify
@@ -34,3 +36,11 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+### Artwork Credits
+
+All artwork came from [OpenGameArt LPC project](https://opengameart.org/content/liberated-pixel-cup-lpc-base-assets-sprites-map-tiles) and [Character Animation](https://opengameart.org/content/character-animations-clothes-armor-weapons-skeleton-enemy-combat-dummy). It was created by multiple authors and is licensed as CC-BY-SA 3.0 and GPL 3.0.
+
+- Characters from [Johannes Sjölund](j.sjolund@gmail.com)
+- Castle Walls from Daniel Armstrong (AKA HughSpectrum)
+- Cement from Lanea Zimmerman (AKA Sharm)

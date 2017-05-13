@@ -50,9 +50,17 @@ Sprite.prototype.forward = function(n) {
 
 Sprite.prototype.turn = function(s) {
   s = s || 1;
-  this.direction = Math.max(Math.min(this.direction + s, 3), 0);
+  this.direction += s;
+  if(this.direction>3) this.direction -= 4;
+  if(this.direction<0) this.direction += 4;
 };
 
 Sprite.prototype.say = function(s) {
-  console.log(this.name+": "+s);
+  console.log(this.name + ": " + s);
+};
+
+Sprite.prototype.drawAsImage = function(ctx, img) {
+  ctx.drawImage(img,
+    0 * 64, (3-this.direction) * 64, 64, 64,
+    this.x-32, this.y-54, 64, 64);
 };
