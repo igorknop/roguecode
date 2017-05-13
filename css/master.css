@@ -51,7 +51,6 @@ canvas {
 }
 
 li {
-  width: 90%;
   height: 1.1em;
   padding: 0.5em;
   line-height: 1.1em;
@@ -81,4 +80,11 @@ footer a,footer a:visited,footer a:active {
   text-decoration: none;
   font-family: monospace;
   color: white;
+}
+#mainProg li{
+  margin-left: 2em;
+}
+
+#mainProg li:first-child,#mainProg li:last-child{
+  margin-left: 0;
 }
