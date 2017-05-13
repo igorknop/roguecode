@@ -16,6 +16,7 @@ Map.prototype.load = function(map) {
         case 2:
           this.cells[i][j] = 0;
           this.hero = new Sprite();
+          this.hero.name = "Hero";
           this.hero.map = this;
           this.hero.moveTo(j,i);
           break;

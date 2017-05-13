@@ -51,7 +51,7 @@ canvas {
 }
 
 li {
-  height: 1.1em;
+  min-height: 1.1em;
   padding: 0.5em;
   line-height: 1.1em;
   margin: 0;
@@ -61,6 +61,8 @@ li {
   color: white;
   font-family: monospace;
   font-weight: bold;
+  transition-property: border-color, box-shadow, background-color;
+  transition-duration: 0.25s;
 }
 
 .over {
@@ -87,4 +89,10 @@ footer a,footer a:visited,footer a:active {
 
 #mainProg li:first-child,#mainProg li:last-child{
   margin-left: 0;
+}
+
+.active{
+  border: 1px solid green;
+  box-shadow: 0px 0px 15px green;
+  background-color: rgb(00,20,00);
 }
