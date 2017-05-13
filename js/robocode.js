@@ -36,24 +36,20 @@ RoboCode.prototype.init = function () {
 };
 
 handleDragStart = function(e){
-  console.log("handleDragStart"+this);
   this.style.opacity = 0.4;
   srcElement = this;
   e.dataTransfer.effectAllowed = 'move';
   e.dataTransfer.setData('text/html', this.innerHTML);
 }
 handleDragOver = function(e){
-  console.log("handleDragOver");
   if (e.preventDefault) e.preventDefault();
   e.dataTransfer.dropEffect = 'move';
   return false;
 }
 handleDragEnter = function(e){
-  console.log("handleDragEnter");
   this.classList.add('over');
 }
 handleDragLeave = function(e){
-  console.log("handleDragLeave");
   this.classList.remove('over');
 }
 handleDrop = function(e){
@@ -74,7 +70,6 @@ handleDropInLine = function(e){
 }
 
 handleDragEnd = function(e){
-  console.log("handleDragEnd");
   document.querySelectorAll("#mainProg li").forEach(function(comm){
     comm.classList.remove('over');
     comm.style.opacity = 1;

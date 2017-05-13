@@ -51,7 +51,10 @@ li{
   padding: 0.5em;
   line-height: 1.1em;
   margin: 0;
-  border: 1px outset lightgrey;
+  border: 2px outset lightgrey;
   border-radius: 0.5em;
-  background-color: white;
+  background-color: beige;
+}
+.over{
+  border: 2px inset lightgrey;
 }
