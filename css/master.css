@@ -58,3 +58,9 @@ li{
 .over{
   border: 2px inset lightgrey;
 }
+
+#play, #pause, #stop{
+  padding:0.5em;
+  text-align: center;
+  border-radius: 0.5em;
+}
